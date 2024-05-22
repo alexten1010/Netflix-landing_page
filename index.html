@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="shortcut icon" href="image/favicon.png" type="image/x-icon">
+    <title>Netflix Clone - Watch TV Shows Online, Watch Movies Online</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="root">
+        <nav class="navbar">
+            <img class="img-logo" img="BrandAssets_Logos_01-Wordmark.jpg" alt="Netflix logo">
+            <div class="btn-sign-in" id="sign-in-btn">Sign in</div>
+        </nav>
+        <div class="main-container">
+            <div class="main-titles-container">
+                <h1 class="main-title">Unlimited Movies, TV shows and more.</h1>
+                <h2 class="main-subtitle">Watch anywhere. Cancel anytime.</h2>
+                <p class="main-call-to-action">
+                    Ready to watch the latest movies and shows?
+                    Enter your email to create or restart your membership today.
+                </p>
+            </div>
+            <div class="main-email-container">
+                <input class="main-email-container-input" id="email-input" type="email" placeholder="Email address">
+                <div class="btn-get-started" id="get-started-btn">Get Started ></div>
+                <p id="error-message" style="color: red;"></p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        const signInBtn = document.getElementById("sign-in-btn");
+        const getStartedBtn = document.getElementById("get-started-btn");
+        const emailInput = document.getElementById("email-input");
+        const errorMessage = document.getElementById("error-message");
+
+        signInBtn.addEventListener("click", () => {
+            errorMessage.textContent = "Sign in functionality will be implemented here.";
+            // You can add more functionality here, such as redirecting to a login page.
+        });
+
+        getStartedBtn.addEventListener("click", () => {
+            const emailAddress = emailInput.value;
+            if (emailAddress) {
+                errorMessage.textContent = "";
+                errorMessage.textContent = `!Please enter a valid email address: ${emailAddress}`;
+                // You can add more functionality here, such as sending a confirmation email.
+            } else {
+                errorMessage.textContent = "Please enter your email address.";
+            }
+        });
+        emailInput.addEventListener("keydown", (event) => {
+            if (event.key === "Enter") {
+                getStartedBtn.click();
+            }
+        });
+    </script>
+</body>
+</html>
